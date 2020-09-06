@@ -10,6 +10,73 @@
 </head>
 <body>
 
+    <nav>
+        <!--high scores left   -->
+        <link> 
+        <!-- Timer right   -->
+        <p id = "timer"></p>
+    </nav>
+
+    <main class = "container">
+        <section>
+            <article id = "intro">
+                <!-- Title  -->
+                <header>
+                    <h1> Coding Quiz Challenge </h1>
+                </header>
+                <!-- Instructions -->
+                <p> 
+                    Try to answer the following code-related questions within the time
+                    limit. Keep in mind that incorrect answers will penalize your score and time 
+                    by ten seconds. 
+                
+                </p>
+                <!-- Start button -->
+                <button> Start Quiz! </button>
+            </article>
+            <!-- Quiz Quesitons -->
+            <article id = "quiz">
+                <!-- question -->
+                <h3></h3>
+                <!-- answers -->
+                <ul id = "answers">
+                    <ol id = "0"></ol>
+                    <ol id = "1"></ol>
+                    <ol id = "2"></ol>
+                    <ol id = "3"></ol>
+                </ul>
+                <!-- Correct or Wrong -->
+                </hr>
+                <p id = ""></p>
+            </article>
+            <!-- High Score Form -->
+            <article >
+                <h3> All done! </h3>
+                <!-- final score  -->
+                <p id = "">Your final score is  .</p>
+
+                <form>
+                    <label> Enter intials: </label>
+                    <input type = "text" id = "intials" >
+                    <input type = "submit" value = "submit">
+                </form>
+
+            </article>
+            <!-- Highscores -->
+            <article>
+                <h2> Highscores </h2>
+                <!-- high score list  -->
+                <ul id = "scoreList">
+                </ul>
+                <!-- play again? go back?  -->
+                <button id = ""> Go Back </button>
+                <!-- clear scores -->
+                <button id = "clearScores"> Clear Highscores </button>
+            </article>
+        </section> 
+    </main>
+
+
 <!--   
     GIVEN I am taking a code quiz
      nav bar with "View Highscores" link in left hand corner and 
