@@ -6,6 +6,7 @@
     float or add padding right 
 */
 
+
 /* 
    timer is black 
    top right hand corner needs padding or float 
@@ -29,6 +30,15 @@ center and make it realtive for the objects inside to react
     button white text
 */
 
+button.intro{
+    background-color:  #FF7F50 ;
+    color: #F0FFFF; 
+    border-radius: 4px;
+    border-color: #A52A2A;
+    font:italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 
 /* Article 2 Quiz */
 /*  
@@ -43,12 +53,29 @@ center and make it realtive for the objects inside to react
 
 */
 
+button.quiz{
+    background-color:  #FF7F50 ;
+    color: #F0FFFF; 
+    border-radius: 4px;
+    border-color: #A52A2A;
+    font:italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 /* Article 3  Score form */
 /*  
     center text content 
     button styling 
 
 */
+#hSSubmit{
+    background-color:  #FF7F50 ;
+    color: #F0FFFF; 
+    border-radius: 4px;
+    border-color: #A52A2A;
+    font:italic;
+    font-family: 'Courier New', Courier, monospace;
+}
 
 
 /* Article 4  Highscore List */
@@ -65,4 +92,8 @@ li.answers {
     background: #FF7F50 ;
     color: #F0FFFF; 
     padding: 5px;
+    border-radius: 4px;
+    border-color: #A52A2A;
+    font:italic;
+    font-family: 'Courier New', Courier, monospace;
 }
