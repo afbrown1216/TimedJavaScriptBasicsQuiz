@@ -1,0 +1,68 @@
+
+/* NAV  */
+/*  
+    High Score link purple before and after click 
+    will be on the left side of the nav bar need to
+    float or add padding right 
+*/
+
+/* 
+   timer is black 
+   top right hand corner needs padding or float 
+   look into positioning 
+*/
+
+
+
+/* Main  */
+/* 
+center and make it realtive for the objects inside to react 
+*/
+
+/* Section  */
+
+/* Article 1  Quiz Intro*/
+/*  
+    center the content 
+    needs a display toggle: none/block
+    button background style 
+    button white text
+*/
+
+
+/* Article 2 Quiz */
+/*  
+    center content 
+    buttons purple background 
+    buttons white text 
+
+    Right/Wrong p tag 
+    italic 
+    toggle display 
+
+
+*/
+
+/* Article 3  Score form */
+/*  
+    center text content 
+    button styling 
+
+*/
+
+
+/* Article 4  Highscore List */
+/*  
+    il background light 
+*/
+
+
+.answers {
+    list-style-position: inside;
+}
+
+li.answers {
+    background: #FF7F50 ;
+    color: #F0FFFF; 
+    padding: 5px;
+}
