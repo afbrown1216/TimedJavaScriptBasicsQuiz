@@ -1,4 +1,5 @@
 // variables 
+var introEl = document.getElementById("intro");
 var quizEl = document.getElementById("quiz");
 var questEl = document.getElementById("question");
 var answerChoiceEl = document.getElementById("answers");
@@ -6,6 +7,7 @@ var choiceEl = document.getElementById("rightWrong");
 var finalScoreEl = document.getElementById("finalScore");
 var formEl = document.getElementById("form");
 var scoreEL = document.getElementById("scores");
+var startQuizBtn = document.getElementById("startBtn");
 
 
 // timer 
@@ -33,8 +35,17 @@ function sendMessage() {
 
 timer();
 
+startQuizBtn.addEventListener("click", startQuiz());
 
+function startQuiz(){
+    var display = introEl.getAttribute("display")
+    if (display === "block"){
+        introEl.setAttribute("display","none")
 
+    }
+   
+
+}
 
 // toggle the intro,quiz, form and highscore table in and out of view 
 // 1. Create an element 
