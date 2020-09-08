@@ -10,82 +10,96 @@
 </head>
 <body>
 
-    <nav>
-        <!--high scores left   -->
-        <link id = "highScoreLink" class = "nav-item"> <a> High Score </a></link>
-        <!-- Timer right   -->
-        <div class = "nav-item justify-content-end">
-            <p id = "timer" class =></p>
-        </div>
+    <nav >
+
+        <ul class = "nav clearfix">
+            <!--high scores left   -->
+            <li class = "float-left">
+             <a class = "nav-link" id = "hSLink"> High Score </a> 
+            </li>
+            <!-- Timer right   -->
+            <li class ="float-right" >
+                <a id = "timer" class = "nav-link disabled">"timer"</a>
+            </li>
+          </ul>
+        
+        
+        
         
     </nav>
 
     <main class = "container">
-        <section>
-            <article id = "intro" class = "intro">
-                <!-- Title  -->
-                <header>
-                    <h1> Coding Quiz Challenge </h1>
-                </header>
-                <!-- Instructions -->
-                <p> 
-                    Try to answer the following code-related questions within the time
-                    limit. Keep in mind that incorrect answers will penalize your score and time 
-                    by ten seconds. 
-                
-                </p>
-                <!-- Start button -->
-                <button> Start Quiz! </button>
-            </article>
-            <!-- Quiz Quesitons -->
-            <article id = "quiz" class = "quiz">
-                <!-- question -->
-                <h3 id = "question"></h3>
-                <!-- answers -->
-                <ol class = "answers" id = "answers">
-                    <!-- 
-                        for loop append li tag with id equaling the index of answer array used and button
-                        or for loop append text cotent to ol tag matching the index of with the given id and a button
-                        append class highScore
-
-                    -->
-                    <ol id = "0"></ol>
-                    <ol id = "1"></ol>
-                    <ol id = "2"></ol>
-                    <ol id = "3"></ol>
-                </ol>
-                <!-- Correct or Wrong -->
-                </hr>
-                <p id = ""></p>
-            </article>
-            <!-- High Score Form -->
-            <article class = "form" >
-                <h3> All done! </h3>
-                <!-- final score  -->
-                <p id = "">Your final score is  .</p>
-
-                <form id = "hSForm">
-                    <div class = "form-group">
-                        <label> Enter intials: </label>
-                    <input type = "text" id = "intials" class = "form-control" >
-                    <input type = "submit" class = "form-control" id = "hSSubmit" value = "submit">
-                    </div>
+        <div class = "row">
+            <div class = "col-sm-3 invisibleCol" > </div>
+            <section class = "col-sm-6">
+                <article id = "intro" class = "intro">
+                    <!-- Title  -->
+                    <header>
+                        <h1> Coding Quiz Challenge </h1>
+                    </header>
+                    <!-- Instructions -->
+                    <p> 
+                        Try to answer the following code-related questions within the time
+                        limit. Keep in mind that incorrect answers will penalize your score and time 
+                        by ten seconds. 
                     
-                </form>
+                    </p>
+                    <!-- Start button -->
+                    <button id = "startBtn"> Start Quiz! </button>
+                </article>
+            <!-- Quiz Quesitons -->
+                <article id = "quiz" class = "quiz">
+                    <!-- question -->
+                    <h3 id = "question"> "Question"</h3>
+                    <!-- answers -->
+                    <ol class = "answers" id = "answers">
+                        <!-- 
+                            for loop append li tag with id equaling the index of answer array used and button
+                            or for loop append text cotent to ol tag matching the index of with the given id and a button
+                            append class highScore
 
-            </article>
-            <!-- Highscores -->
-            <article>
-                <h2> Highscores </h2>
-                <!-- high score list  -->
-                <ul id = "scoreList">
-                </ul>
-                <!-- play again? go back?  -->
-                <button id = ""> Go Back </button>
-                <!-- clear scores -->
-                <button id = "clearScores"> Clear Highscores </button>
-            </article>
+                        -->
+                        <ol id = "0">1</ol>
+                        <ol id = "1">2</ol>
+                        <ol id = "2">3</ol>
+                        <ol id = "3">4</ol>
+                    </ol>
+                    <!-- Correct or Wrong -->
+                    </hr>
+                    <p id = "rightWrong"> Correct </p>
+                </article>
+                <!-- High Score Form -->
+                <article class = "form" id = "form">
+                    <h3> All done! </h3>
+                    <!-- final score  -->
+                    <p id = "">Your final score is  .</p>
+
+                    <form id = "hSForm">
+                        <div >
+                            <label> Enter intials: </label>
+                        <input type = "text" id = "intials"  >
+                        <input type = "submit"  id = "hSSubmit" value = "submit">
+                        </div>
+                        
+                    </form>
+
+                </article>
+                <!-- Highscores -->
+                <article id = "scores">
+                    <h2> Highscores </h2>
+                    <!-- high score list  -->
+                    <ul id = "scoreList">
+                    </ul>
+                    <!-- play again? go back?  -->
+                    <button class = "hSBtn"> Go Back </button>
+                    <!-- clear scores -->
+                    <button id = "clearScores" class = "hSBtn"> Clear Highscores </button>
+                </article>
         </section> 
+        <div class = "col-sm-3"> </div>
+            
+        </div>
+        
     </main>
 
 

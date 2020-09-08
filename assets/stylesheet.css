@@ -13,15 +13,19 @@
    look into positioning 
 */
 
+#timer{
+    color: black 
+}
 
 
 /* Main  */
 /* 
 center and make it realtive for the objects inside to react 
 */
-
+main {
+    position: relative;
+}
 /* Section  */
-
 /* Article 1  Quiz Intro*/
 /*  
     center the content 
@@ -29,14 +33,17 @@ center and make it realtive for the objects inside to react
     button background style 
     button white text
 */
+#intro{
+    text-align: center;
+}
 
-button.intro{
+#startBtn{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
     border-radius: 4px;
     border-color: #A52A2A;
     font:italic;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
 }
 
 
@@ -52,15 +59,17 @@ button.intro{
 
 
 */
-
-button.quiz{
+#quiz{
+    display:none;
+}
+/* button{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
     border-radius: 4px;
     border-color: #A52A2A;
     font:italic;
     font-family: 'Courier New', Courier, monospace;
-}
+} */
 
 /* Article 3  Score form */
 /*  
@@ -68,32 +77,37 @@ button.quiz{
     button styling 
 
 */
+#form{
+    display:none;
+}
 #hSSubmit{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
     border-radius: 4px;
     border-color: #A52A2A;
     font:italic;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
 }
-
+.answers {
+    list-style-position: inside;
+}
 
 /* Article 4  Highscore List */
 /*  
     il background light 
 */
 
-
-.answers {
-    list-style-position: inside;
+#scores {
+    display: none;
 }
 
-li.answers {
+
+.hSBtn{
     background: #FF7F50 ;
     color: #F0FFFF; 
     padding: 5px;
     border-radius: 4px;
     border-color: #A52A2A;
     font:italic;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
 }
