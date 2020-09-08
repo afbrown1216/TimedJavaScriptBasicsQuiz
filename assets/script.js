@@ -1,3 +1,13 @@
+// variables 
+var quizEl = document.getElementById("quiz");
+var questEl = document.getElementById("question");
+var answerChoiceEl = document.getElementById("answers");
+var choiceEl = document.getElementById("rightWrong");
+var finalScoreEl = document.getElementById("finalScore");
+var formEl = document.getElementById("form");
+var scoreEL = document.getElementById("scores");
+
+
 // timer 
 var timeEl = document.getElementById("timer");
 
@@ -22,3 +32,11 @@ function sendMessage() {
 }
 
 timer();
+
+
+
+
+// toggle the intro,quiz, form and highscore table in and out of view 
+// 1. Create an element 
+// 2. Add content 
+// 3. Append it to an existing element 
