@@ -17,6 +17,14 @@
     color: black 
 }
 
+button{
+    background-color:  #FF7F50 ;
+    color: #F0FFFF; 
+    border-radius: 4px;
+    border-color: #A52A2A;
+    font:italic;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+}
 
 /* Main  */
 /* 
