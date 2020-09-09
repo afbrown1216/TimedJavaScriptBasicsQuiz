@@ -10,7 +10,7 @@ var scoreEL = document.getElementById("scores");
 var startQuizBtn = document.getElementById("startBtn");
 var btnEl = document.getElementById("nextQ");
 
-
+var currentQuestion = 0;
 
 //Question Arrays 
 questionsObject = {
@@ -84,17 +84,15 @@ function sendMessage() {
 // timer();
 
 startQuizBtn.addEventListener("click", function startQuiz() {
-    console.log("clicked")
-    var display = introEl.getAttribute("display")
     //toggle display 
     //take out intro 
-    introEl.setAttribute("display", "none");
+    introEl.innerHTML = ""
     //bring in questions 
-    quizEl.setAttribute("display", "block");
+    quizEl.style.display = "block";
 
 
     //add question 1 
-    questEl.textContent = questionsObject.questions[0];
+    questEl.textContent = questionsObject.questions[currentQuestion];
     // add the answer buttons 
 
     for (var i = 0; i < questionsObject.answers.q1.length; i++) {
@@ -114,51 +112,40 @@ startQuizBtn.addEventListener("click", function startQuiz() {
         answerChoiceEl.append(li);
         li.append(btn);
     }
-
-
-    
-
-    //When a question inside of answers list is clicked 
-    answerChoiceEl.addEventListener("click", function (event){
-        var element = event.target;
-        // If that element is a button...
-        if (element.matches("button") === true) {
-            // Get its id and compare to the correct answer if correct Right Appears 
-            var index = element.parentElement.getAttribute("id");
-            if (index === correctAnswers[0]){
-                var correct = document.createElement("p");
-                correct.textContent = "Correct";
-                correct.setAttribute("font-style", "italic");
-                document.getElementById("rightWrong").append(correct);
-            }else {
-                var wrong = document.createElement("p");
-                wrong.textContent = "Wrong";
-                wrong.setAttribute("font-style", "italic");
-                document.getElementById("rightWrong").append(wrong);
-            }
-
-            questEl.textContent = "";
-            questEl.textContent = questionsObject.questions[1];
-
-           
-
-            for (var i = 0; i < questionsObject.answers.q2.length; i++) {
-                console.log(questionsObject.answers.q2[i]);
-                btnEl.textContent = questionsObject.answers.q2[i];
-            }
-
-
-        }
-        
-
-        
-    })
-
-   
-    console.log("done for now")
+    currentQuestion++
 
 });
 
+   //next question event listener 
+   answerChoiceEl.addEventListener("click",function nextQuestion() {
+       //clear the question and answer choices
+       answerChoiceEl.innerHTML = "";
+       questEl.innerHTML = "";
+
+       //add new question 
+       questEl.textContent = questionsObject.questions[currentQuestion];
+
+       //add new answers 
+       for (var i = 0; i < questionsObject.answers.q2.length; i++) {
+
+        //create element 
+        var li = document.createElement("li");
+        //text content 
+        li.setAttribute("id", i);
+        li.setAttribute("class", "nextQ");
+
+        var btn = document.createElement("button");
+        btn.textContent = questionsObject.answers.q2[i];
+        btn.setAttribute("id", i);
+        btn.setAttribute("class","nextQ");
+
+        //append element
+        answerChoiceEl.append(li);
+        li.append(btn);
+    }
+    currentQuestion++;
+    
+   } )
 
 
 
@@ -175,3 +162,37 @@ startQuizBtn.addEventListener("click", function startQuiz() {
 /* get attribute index of li/btn compare to array of correct answer choices 
 if correct then make correct appear if not make wrong appear
 */
+
+
+// currentquestionIndex = 
+// var element = event.target;
+ // if (element.matches("button") === true) {
+        //     // Get its id and compare to the correct answer if correct Right Appears 
+        //     var index = element.parentElement.getAttribute("id");
+        //     if (index === correctAnswers[0]){
+        //         var correct = document.createElement("p");
+        //         correct.textContent = "Correct";
+        //         correct.setAttribute("font-style", "italic");
+        //         document.getElementById("rightWrong").append(correct);
+        //     }else {
+        //         var wrong = document.createElement("p");
+        //         wrong.textContent = "Wrong";
+        //         wrong.setAttribute("font-style", "italic");
+        //         document.getElementById("rightWrong").append(wrong);
+        //     }
+
+        //     questEl.textContent = "";
+        //     answerChoiceEl.innerHTMLn = "";
+        //     questEl.textContent = questionsObject.questions[1];
+           
+
+           
+
+        //     for (var i = 0; i < questionsObject.answers.q2.length; i++) {
+        //         console.log(questionsObject.answers.q2[i]);
+        //         btnEl.textContent = questionsObject.answers.q2[i];
+        //     }
+
+
+        // }
+        

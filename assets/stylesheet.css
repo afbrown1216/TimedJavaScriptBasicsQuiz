@@ -43,6 +43,7 @@ main {
 */
 #intro{
     text-align: center;
+
 }
 
 #startBtn{
@@ -67,9 +68,9 @@ main {
 
 
 */
-/* #quiz{
+#quiz{
     display:none;
-} */
+}
 /* button{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
