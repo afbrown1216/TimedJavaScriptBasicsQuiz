@@ -8,6 +8,7 @@ var finalScoreEl = document.getElementById("finalScore");
 var formEl = document.getElementById("form");
 var scoreEL = document.getElementById("scores");
 var startQuizBtn = document.getElementById("startBtn");
+var btnEl = document.getElementById("nextQ");
 
 
 
@@ -135,39 +136,25 @@ startQuizBtn.addEventListener("click", function startQuiz() {
                 wrong.setAttribute("font-style", "italic");
                 document.getElementById("rightWrong").append(wrong);
             }
+
+            questEl.textContent = "";
+            questEl.textContent = questionsObject.questions[1];
+
+           
+
+            for (var i = 0; i < questionsObject.answers.q2.length; i++) {
+                console.log(questionsObject.answers.q2[i]);
+                btnEl.textContent = questionsObject.answers.q2[i];
+            }
+
+
         }
-        nextQuestion();
+        
 
         
     })
 
-    //Question 2 
-    function nextQuestion (){
-        //clear content 
-        questEl.textContent = "";
-        var el = document.getElementsById("nextQ");
-        el.remove();
-        //populate q2 
-        questEl.textContent = questionsObject.questions[1];
-        //populate answers for q2 
-        for (var i = 0; i < questionsObject.answers.q2.length; i++) {
-
-            //create element 
-            var li = document.createElement("li");
-            //text content 
-            li.setAttribute("id", i);
-    
-            var btn = document.createElement("button");
-            btn.textContent = questionsObject.answers.q2[i];
-            btn.setAttribute("id", i);
-            btn.setAttribute("class","nextQ");
-    
-            //append element
-            answerChoiceEl.append(li);
-            li.append(btn);
-        }
-    }
-
+   
     console.log("done for now")
 
 });
