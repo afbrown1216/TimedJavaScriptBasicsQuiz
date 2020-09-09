@@ -13,7 +13,7 @@ var startQuizBtn = document.getElementById("startBtn");
 
 //Question Arrays 
 questionsObject = {
-    questions : [
+    questions: [
         "A very useful tool used during development and debugging for printing content to the debugger is:",
         "Commonly used data types DO NOT include:",
         "The condition in an if I else statement is enclosed within ___.",
@@ -27,7 +27,7 @@ questionsObject = {
             "for loops",
             "console.log"
         ],
-        q2 :[
+        q2: [
             "strings",
             "booleans",
             "alerts",
@@ -66,12 +66,12 @@ var secondsLeft = 75;
 //     var timerInterval = setInterval(function () {
 //     secondsLeft--;
 //     timeEl.textContent = "Time: " + secondsLeft; 
-    
+
 //     if(secondsLeft === 0 ){
 //         clearInterval(timerInterval)
 //         sendMessage();
 //     }
-    
+
 //     }, 1000)
 // }
 
@@ -81,22 +81,22 @@ function sendMessage() {
 
 // timer();
 
-startQuizBtn.addEventListener("click",function startQuiz(){
+startQuizBtn.addEventListener("click", function startQuiz() {
     console.log("clicked")
     var display = introEl.getAttribute("display")
-        //toggle display 
-        //take out intro 
-        introEl.setAttribute("display","none");
-        //bring in questions 
-        quizEl.setAttribute("display","block");
-    
-   
+    //toggle display 
+    //take out intro 
+    introEl.setAttribute("display", "none");
+    //bring in questions 
+    quizEl.setAttribute("display", "block");
+
+
     //add question 1 
     questEl.textContent = questionsObject.questions[0];
     // add the answer buttons 
-    
-    for( var i = 0; i < questionsObject.answers.q1.length; i++ ){
-    
+
+    for (var i = 0; i < questionsObject.answers.q1.length; i++) {
+
         //create element 
         var li = document.createElement("li");
         //text content 
@@ -105,19 +105,20 @@ startQuizBtn.addEventListener("click",function startQuiz(){
         var btn = document.createElement("button");
         btn.textContent = questionsObject.answers.q1[i];
         btn.setAttribute("id", i);
-        
+
         //append element
         answerChoiceEl.append(li);
         li.append(btn);
-
-       
     }
 
-    
 
-   console.log("done for now")
+    //Question 2 
 
-} );
+
+
+    console.log("done for now")
+
+});
 
 
 
@@ -129,4 +130,3 @@ startQuizBtn.addEventListener("click",function startQuiz(){
 // 1. Create an element 
 // 2. Add content 
 // 3. Append it to an existing element 
-

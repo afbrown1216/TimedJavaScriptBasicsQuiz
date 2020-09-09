@@ -67,9 +67,9 @@ main {
 
 
 */
-#quiz{
+/* #quiz{
     display:none;
-}
+} */
 /* button{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
@@ -85,9 +85,9 @@ main {
     button styling 
 
 */
-#form{
+/* #form{
     display:none;
-}
+} */
 #hSSubmit{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
@@ -105,9 +105,9 @@ main {
     il background light 
 */
 
-#scores {
+/* #scores {
     display: none;
-}
+} */
 
 
 .hSBtn{
