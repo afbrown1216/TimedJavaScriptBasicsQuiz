@@ -16,7 +16,7 @@ questionsObject = {
     questions: [
         "A very useful tool used during development and debugging for printing content to the debugger is:",
         "Commonly used data types DO NOT include:",
-        "The condition in an if I else statement is enclosed within ___.",
+        "The condition in an if/else statement is enclosed within ___.",
         "Arrays in JavaScript can be used to store ____.",
         "String values must be enclosed within _____ when being assigned to variables.",
     ],
@@ -43,7 +43,7 @@ questionsObject = {
             "numbers and strings",
             "other arrays",
             "booleans",
-            "all of the abover"
+            "all of the above"
         ],
         q5: [
             "commas",
@@ -54,7 +54,8 @@ questionsObject = {
     }
 };
 
-
+//Answers Array 
+var correctAnswers = [ 4,2,3,4,3 ];
 
 // timer 
 var timeEl = document.getElementById("timer");
@@ -101,10 +102,12 @@ startQuizBtn.addEventListener("click", function startQuiz() {
         var li = document.createElement("li");
         //text content 
         li.setAttribute("id", i);
+        li.setAttribute("class", "nextQ");
 
         var btn = document.createElement("button");
         btn.textContent = questionsObject.answers.q1[i];
         btn.setAttribute("id", i);
+        btn.setAttribute("class","nextQ");
 
         //append element
         answerChoiceEl.append(li);
@@ -112,9 +115,58 @@ startQuizBtn.addEventListener("click", function startQuiz() {
     }
 
 
+    
+
+    //When a question inside of answers list is clicked 
+    answerChoiceEl.addEventListener("click", function (event){
+        var element = event.target;
+        // If that element is a button...
+        if (element.matches("button") === true) {
+            // Get its id and compare to the correct answer if correct Right Appears 
+            var index = element.parentElement.getAttribute("id");
+            if (index === correctAnswers[0]){
+                var correct = document.createElement("p");
+                correct.textContent = "Correct";
+                correct.setAttribute("font-style", "italic");
+                document.getElementById("rightWrong").append(correct);
+            }else {
+                var wrong = document.createElement("p");
+                wrong.textContent = "Wrong";
+                wrong.setAttribute("font-style", "italic");
+                document.getElementById("rightWrong").append(wrong);
+            }
+        }
+        nextQuestion();
+
+        
+    })
+
     //Question 2 
+    function nextQuestion (){
+        //clear content 
+        questEl.textContent = "";
+        var el = document.getElementsById("nextQ");
+        el.remove();
+        //populate q2 
+        questEl.textContent = questionsObject.questions[1];
+        //populate answers for q2 
+        for (var i = 0; i < questionsObject.answers.q2.length; i++) {
 
-
+            //create element 
+            var li = document.createElement("li");
+            //text content 
+            li.setAttribute("id", i);
+    
+            var btn = document.createElement("button");
+            btn.textContent = questionsObject.answers.q2[i];
+            btn.setAttribute("id", i);
+            btn.setAttribute("class","nextQ");
+    
+            //append element
+            answerChoiceEl.append(li);
+            li.append(btn);
+        }
+    }
 
     console.log("done for now")
 
@@ -130,3 +182,9 @@ startQuizBtn.addEventListener("click", function startQuiz() {
 // 1. Create an element 
 // 2. Add content 
 // 3. Append it to an existing element 
+
+
+//for answers 
+/* get attribute index of li/btn compare to array of correct answer choices 
+if correct then make correct appear if not make wrong appear
+*/
