@@ -8,6 +8,9 @@ var finalScoreEl = document.getElementById("finalScore");
 var formEl = document.getElementById("form");
 var scoreEL = document.getElementById("scores");
 var startQuizBtn = document.getElementById("startBtn");
+var scoreListEl = document.getElementById("scoreList");
+var hSBtnEl = document.getElementById("clearScores");
+var submitScore = document.getElementById("hSSubmit");
 
 
 var currentQuestion = 0;
@@ -172,8 +175,36 @@ startQuizBtn.addEventListener("click", function startQuiz() {
 
 //function 
 
+// store highschore 
+function highscoreForm () {
+  var nameHighScore = document.getElementById("#intials").value;
 
+  if (nameHighScore === ""){
+    alert("High Score cannot be blank");
+  }
+
+  localStorage.setItem("initals", nameHighScore);
+
+}
+
+
+function getScores () {
+  //create element 
+  li = document.createElement("li");
+  var scoreList = localStorage.getItem("initals");
+  //text content 
+  li.textContent = scoreList;
+  //append 
+  scoreListEl.append(li);
+}
+
+function clearScore () {
+  var highscore = localStorage.clear 
+}
 //onclick event listeners 
+
+hSBtnEl.addEventListener("click", clearScore);
+submitScore.addEventListener("click", highscoreForm);
 
 
 // toggle the intro,quiz, form and highscore table in and out of view 

@@ -12,7 +12,10 @@
    top right hand corner needs padding or float 
    look into positioning 
 */
-
+Body{ 
+    justify-content: center;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+}
 #timer{
     color: black 
 }
@@ -71,14 +74,14 @@ main {
 #quiz{
     display:none;
 }
-/* button{
+button{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
     border-radius: 4px;
     border-color: #A52A2A;
     font:italic;
-    font-family: 'Courier New', Courier, monospace;
-} */
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+}
 
 /* Article 3  Score form */
 /*  
@@ -86,9 +89,9 @@ main {
     button styling 
 
 */
-/* #form{
+#form{
     display:none;
-} */
+}
 #hSSubmit{
     background-color:  #FF7F50 ;
     color: #F0FFFF; 
@@ -106,9 +109,9 @@ main {
     il background light 
 */
 
-/* #scores {
+#scores {
     display: none;
-} */
+}
 
 
 .hSBtn{
