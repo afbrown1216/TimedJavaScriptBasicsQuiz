@@ -11,12 +11,13 @@ var startQuizBtn = document.getElementById("startBtn");
 var scoreListEl = document.getElementById("scoreList");
 var hSBtnEl = document.getElementById("clearScores");
 var submitScore = document.getElementById("hSSubmit");
+var timeEl = document.getElementById("timer");
 
 
 var currentQuestion = 0;
 
 //Question Array
-questionsObject = [
+var questionsObject = [
     {
       question:"A very useful tool used during development and debugging for printing content to the debugger is:",
       answers: ["JavaScript", "terminal / bash", "for loops", "console.log"],
@@ -47,12 +48,13 @@ var correctAnswers = [ "console.log","booleans","parentheses","all of the above"
 // console.log(correctAnswers[1]);
 
 // timer 
-var timeEl = document.getElementById("timer");
+
+var secondsLeft = 100;
 
 //score 
 var score = 0;
+//Functions 
 
-var secondsLeft = 10;
 function timer(){
     var timerInterval = setInterval(function () {
     secondsLeft--;
@@ -67,30 +69,37 @@ function timer(){
         var h2 = document.createElement("h2");
         h2.textContent = "Game Over."
         var h3 = document.createElement("h3");
-        h3.textContent = "Final Score: " + 0;
+        h3.textContent = "Final Score: " + score;
         
         finalScoreEl.append(h2);
         h2.append(h3);
-
-
     }
 
     }, 1000)
-}
+};
 
 
 
 // timer();
 
-startQuizBtn.addEventListener("click", function startQuiz() {
+startQuizBtn.addEventListener("click", startQuiz());
+
+function startQuiz(){
+  //start time
+  generateNextQuestion()
+}
+
+
+function generateNextQuestion() {
     //start timer 
-    timer();
+    // timer();
     //toggle display 
     //take out intro 
     introEl.innerHTML = ""
     //bring in questions 
     quizEl.style.display = "block";
-
+    answerChoiceEl.innerHTML = "";
+    choiceEl.innerHTML = "";
 
     //add question 1 
     questEl.textContent = questionsObject[currentQuestion].question;
@@ -108,82 +117,145 @@ startQuizBtn.addEventListener("click", function startQuiz() {
         btn.textContent = questionsObject[currentQuestion].answers[i];
         btn.setAttribute("id", i);
         btn.setAttribute("class","nextQ");
+        btn.setAttribute('value', questionsObject[currentQuestion].answers[i] )
+      btn.onclick = questionClicked
 
         //append element
         answerChoiceEl.append(li);
         li.append(btn);
         
     }
-    currentQuestion++
-    score = secondsLeft;
+   // currentQuestion++
+  //  score = secondsLeft;
 
-});
+};
 
-   //next question event listener 
-   answerChoiceEl.addEventListener("click",function nextQuestion() {
-       //check answer 
-       
-      
-       //clear the question and answer choices
-       answerChoiceEl.innerHTML = "";
-       questEl.innerHTML = "";
+//btn click event answer 
+function questionClicked (){
+  console.log(this.value);
+  var val = this.value;
+  if(val === correctAnswers[currentQuestion]){
+    //choiceEl.setAttribute("style", "display: block")
+    var p = document.createElement("p");
+    p.textContent= 'Correct';
+    choiceEl.append(p);
+    score = score +1
+  }else {
+    var p = document.createElement("p");
+    p.textContent= 'Incorrect';
+    choiceEl.append(p);
+    score = score - 1
+    secondsLeft = secondsLeft - 10
+  }
 
-       //add new question 
-       questEl.textContent = questionsObject[currentQuestion].question;
+  currentQuestion ++
 
-       //add new answers 
-       for (var i = 0; i < questionsObject[currentQuestion].answers.length; i++) {
+  if( currentQuestion === questionsObject.length || secondsLeft <= 0 ) {
+      quizEnd();
+
+  } else {
+    generateNextQuestion();
+  }
+
+ 
+
+
+}
+
+function quizEnd () {
+  console.log("End of Quiz")
+  quizEl.style.display = "none";
+        formEl.style.display = "block";
 
         //create element 
-        var li = document.createElement("li");
-        //text content 
-        li.setAttribute("id", i);
-        li.setAttribute("class", "nextQ");
-
-        var btn = document.createElement("button");
-        btn.textContent = questionsObject[currentQuestion].answers[i];
-        btn.setAttribute("id", i);
-        btn.setAttribute("class","nextQ");
-
-        //append element
-        answerChoiceEl.append(li);
-        li.append(btn);
+        var h2 = document.createElement("h2");
+        h2.textContent = "Game Over."
+        var h3 = document.createElement("h3");
+        h3.textContent = "Final Score: " + score;
         
-        score = secondsLeft;
-        
-        if (i === questionsObject[currentQuestion].answers.length ){
-            quizEl.style.display = "none";
-            formEl.style.display = "block";
+        finalScoreEl.append(h2);
+        h2.append(h3);
+}
 
-            //create element 
-            var h2 = document.createElement("h2");
-            h2.textContent = "Game Over."
-            var h3 = document.createElement("h3");
-            h3.textContent = "Final Score: " + score;
+
+   //next question event listener 
+   //answerChoiceEl.addEventListener("click",
+  //  function nextQuestion(event) {
+  //      //check answer 
+  //     //  console.log(this);
+  //     //  event.target.nodeValue
+  //     //  for ( var i = 0; i < 4; i++ ){
+  //     //    if (correctAnswers[i] === event.target.value  )
+  //     //  };
+
+  //      //clear the question and answer choices
+  //      answerChoiceEl.innerHTML = "";
+  //      questEl.innerHTML = "";
+
+  //      //add new question 
+  //      questEl.textContent = questionsObject[currentQuestion].question;
+
+  //      //add new answers 
+  //      for (var i = 0; i < questionsObject[currentQuestion].answers.length; i++) {
+
+  //       //create element 
+  //       var li = document.createElement("li");
+  //       //text content 
+  //       li.setAttribute("id", i);
+  //       li.setAttribute("class", "nextQ");
+
+  //       var btn = document.createElement("button");
+  //       btn.textContent = questionsObject[currentQuestion].answers[i];
+  //       btn.setAttribute("id", i);
+  //       btn.setAttribute("class","nextQ");
+  //       //btn.addEventListener("click",questionClicked() );
+  //       btn.setAttribute('value', questionsObject[currentQuestion].answers[i] )
+  //       btn.onclick = questionClicked
+
+  //       //append element
+  //       answerChoiceEl.append(li);
+  //       li.append(btn);
+        
+  //       score = secondsLeft;
+        
+  //       if (i === questionsObject[currentQuestion].answers.length ){
+  //           quizEl.style.display = "none";
+  //           formEl.style.display = "block";
+
+  //           //create element 
+  //           var h2 = document.createElement("h2");
+  //           h2.textContent = "Game Over."
+  //           var h3 = document.createElement("h3");
+  //           h3.textContent = "Final Score: " + score;
             
-            finalScoreEl.append(h2);
-            h2.append(h3);
+  //           finalScoreEl.append(h2);
+  //           h2.append(h3);
 
-        }
-    }
+  //       }
+  //   }
     
-    //check the answer 
+  //   //check the answer 
     
-    currentQuestion++;
+  //   currentQuestion++;
     
-   } )
+  //  } )
 
 //function 
 
 // store highschore 
-function highscoreForm () {
-  var nameHighScore = document.getElementById("#intials").value;
-
+function highscoreForm (event) {
+  event.preventDefault();
+  console.log("clicked");
+  var nameHighScore = document.getElementById("intials").value;
+ console.log(nameHighScore);
   if (nameHighScore === ""){
     alert("High Score cannot be blank");
+    return;
   }
 
-  localStorage.setItem("initals", nameHighScore);
+  // localStorage.setItem("initals", nameHighScore);
+
+  
 
 }
 
@@ -205,6 +277,14 @@ function clearScore () {
 
 hSBtnEl.addEventListener("click", clearScore);
 submitScore.addEventListener("click", highscoreForm);
+
+answerChoiceEl.addEventListener("click", function (event) {
+  event.preventDefault();
+
+})
+
+
+
 
 
 // toggle the intro,quiz, form and highscore table in and out of view 
